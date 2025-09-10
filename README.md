@@ -32,7 +32,7 @@
         <hr>
         <br>
         <button><a href="https://google.com">Click me to see new search tab!</a> </button><br><br>
-        <img src="flower.jpeg" alt="it is a flower taken from open sources" width="200" height="160">
+        <img src="SultanbekatBus.jpeg" alt="it is a flower taken from open sources" width="200" height="160">
         <hr>
         <h3>My uni schedule</h3>
         <table >

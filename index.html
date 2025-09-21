@@ -1,124 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        /* added to black table line so it will more readable */
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            width: 30%;
-        }
-    </style>
-    <head>
-        <!-- title  -->
-        <title>Sultanbek's homepage</title>
-    </head>
-    <body>
-        <!-- first part h1, h2,h3, to heading  some of imformation by level  -->
-        <h1>Sultanbek Zhumagali</h1>
-        <h2>Web Technologies Frontend</h2>
-        <h3>About me</h5>
-        <!-- to define a paragraph used <p> tag about me -->
-        <p>Hi! I am student at <a href="https://astanait.edu.kz/">Astana IT University</a>. It is my first web page that i am making at uni course, i had experienced a few years ago when i was like 13 maybe 14 years old, it was one week long marapthon. So, good luck to me!</p>
-        <!-- it is horizontal line to divide by line -->
-        <hr>
-        <h3> My hobbies</h3>
-        <!-- ol tag is used to numeric list -->
-        <ol>
-            <li>playing a Chess(My peak was 1250 elo at <a href="https://chess.com">Chess.com</a>)</li>            
-            <li>reading book(i am trying to keep it stable)</li>
-            <li>table tennis</li>
-        </ol>
-        <hr>
-        <h3> My favourite sites</h3>
-        <!-- ul tag to represent bulleted list -->
-        <ul>     
-            <li><a href="https://monkeytype.com">monkeytype platform</a> it is minimalistic styled to fast touch typing</li>
-            <li><a href="https://codeforces.com">codeforces</a> In school time i wanted to be a competetive programmer</li>
-            <li>youtube.com</li>
+<head>
+    <link rel="stylesheet" href="static/css/main.css">
+    <title>Sultanbek's homepage</title>
+</head>
+<body id="page-body">
+    <nav id="navbar">
+        <ul>
+            <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#hobbies" class="nav-link">Hobbies</a></li>
+            <li class="nav-item"><a href="#favourite-sites" class="nav-link">Sites</a></li>
+            <li class="nav-item"><a href="#schedule" class="nav-link">Schedule</a></li>
+            <li class="nav-item"><a href="#form-section" class="nav-link">Form</a></li>
         </ul>
-        <hr>
-        <!-- br tag it is new line -->
-        <br>
-        <!-- makes button with link to google.com -->
-        <button><a href="https://google.com">Click me to see new search tab!</a> </button><br><br>
-        <img src="Sultanbek.jpg" alt="Sultanbek" width="450" height="300">
-        <hr>
-        <h3>My uni schedule</h3>
-        <table >
-            <!-- thead used as heading and defining main table data -->
+    </nav>
+    <header id="top-banner">
+        <h1 class="main-heading">Sultanbek Zhumagali</h1>
+        <h2 class="sub-heading">Web Technologies Frontend</h2>
+    </header>
+
+    <section id="about-section">
+        <h3 class="section-heading">About me</h3>
+        <p class="paragraph-text">Hi! I am student at <a href="https://astanait.edu.kz/" class="nav-link">Astana IT University</a>. 
+        It is my first web page that I am making at uni course...</p>
+    </section>
+
+    <hr>
+
+    <section id="hobbies">
+        <h3 class="section-heading">My hobbies</h3>
+        <ol class="content-list">
+            <li>Playing Chess (<a href="https://chess.com" class="nav-link">Chess.com</a>)</li>
+            <li>Reading books</li>
+            <li>Table tennis</li>
+        </ol>
+    </section>
+
+    <hr>
+
+    <section id="favourite-sites">
+        <h3 class="section-heading">My favourite sites</h3>
+        <ul class="content-list">
+            <li><a href="https://monkeytype.com" class="nav-link">Monkeytype</a></li>
+            <li><a href="https://codeforces.com" class="nav-link">Codeforces</a></li>
+            <li><a href="https://youtube.com" class="nav-link">YouTube</a></li>
+        </ul>
+    </section>
+
+
+    <hr>
+
+    <button class="btn"><a href="https://google.com" class="btn-link">Click me!</a></button>
+    <br><br>
+    <img src="Sultanbek.jpg" alt="Sultanbek" id="main-image">
+
+    <hr>
+
+    <section id="schedule">
+        <h3 class="section-heading">My uni schedule</h3>
+        <table class="content-table">
             <thead>
                 <tr>
-                    <th>Day</th>
-                    <th>Subject</th>
-                    <th>Time</th>
-                    <th>Duration</th>
+                    <th>Day</th><th>Subject</th><th>Time</th><th>Duration</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Monday</td>
-                    <td>DAA</td>
-                    <td>18:00–20:00</td>
-                    <td>120 minutes</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td>Kazakh lang</td>
-                    <td>16:00–18:00</td>
-                    <td>120 minutes</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td>SDP</td>
-                    <td>18:00–19:00</td>
-                    <td>60 minutes</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>WEB</td>
-                    <td>13:00–15:00</td>
-                    <td>120 minutes</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>SDP</td>
-                    <td>16:00–18:00</td>
-                    <td>120 minutes</td>
-                </tr>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>DAA</td>
-                    <td>18:00–20:00</td>
-                    <td>120 minutes</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td>SDP</td>
-                    <td>12:00–14:00</td>
-                    <td>120 minutes</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td>DAA</td>
-                    <td>14:00–15:00</td>
-                    <td>60 minutes</td>
-                </tr>
+                <tr><td>Monday</td><td>DAA</td><td>18:00–20:00</td><td>120 min</td></tr>
+                <tr><td>Tuesday</td><td>Kazakh lang</td><td>16:00–18:00</td><td>120 min</td></tr>
+                <tr><td>Tuesday</td><td>SDP</td><td>18:00–19:00</td><td>60 min</td></tr>
+                <tr><td>Wednesday</td><td>WEB</td><td>13:00–15:00</td><td>120 min</td></tr>
             </tbody>
         </table>
-        <hr>
-        <h3> My today's mood</h3>
-        <!-- to show emojis we use hex code of emoji -->
-        <p> 	&#x1F634;  <br>💰<br>&#x1F393;</p>
-        <hr>
-        <!-- make form which can get input from user side -->
-        <form>
+    </section>
+
+    <hr>
+
+    <section id="mood">
+        <h3 class="section-heading">My today's mood</h3>
+        <p class="emoji-text">&#x1F634; <br>💰<br>&#x1F393;</p>
+    </section>
+
+    <hr>
+
+    <section id="form-section">
+        <h3 class="section-heading">Contact Me</h3>
+        <form id="user-form">
             <label for="name">Your name:</label><br>
-            <input type="text" id="name" name="name"><br>
+            <input type="text" id="name" class="form-input"><br>
+
             <label for="email">Your email:</label><br>
-            <input type="email" id="email" name="email"><br>
+            <input type="email" id="email" class="form-input"><br>
+
             <label for="color">Your favourite color:</label><br>
-            <input type="color" id="favColor" name="favColor" ><br>
-            <button>Submit</button>
+            <input type="color" id="favColor" class="form-input"><br>
+
+            <button class="submit-btn">Submit</button>
         </form>
-    </body>
+    </section>
+</body>
 </html>

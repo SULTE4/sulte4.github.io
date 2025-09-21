@@ -1,0 +1,123 @@
+/* General */
+body#page-body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Headings */
+.main-heading {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #2a4d69;
+}
+.sub-heading {
+    text-align: center;
+    font-size: 1.5em;
+    color: #4b86b4;
+}
+.section-heading {
+    font-size: 1.3em;
+    margin-top: 20px;
+    color: #063852;
+}
+
+/* Paragraphs */
+.paragraph-text {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Navigation */
+#navbar {
+    background-color: #2a4d69;
+    padding: 10px;
+    text-align: center;
+}
+.nav-item {
+    display: inline;
+    margin: 0 15px;
+}
+.nav-link {
+    color: blueviolet;
+    text-decoration: none;
+    font-weight: bold;
+}
+.nav-link:hover {
+    color: #ffcc00;
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+    background-color: #4b86b4;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-link {
+    color: white;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #2a4d69;
+    transition: 0.3s ease;
+}
+
+/* Tables */
+.content-table {
+    border-collapse: collapse;
+    width: 60%;
+    margin: auto;
+}
+.content-table th, .content-table td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+}
+.content-table th {
+    background-color: #4b86b4;
+    color: white;
+}
+
+/* Images */
+#main-image {
+    display: block;
+    margin: 20px auto;
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Forms */
+.form-input {
+    margin: 5px 0 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+}
+.submit-btn {
+    background-color: #2a4d69;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background-color: #ffcc00;
+    color: #333;
+    transition: 0.3s;
+}
+
+/* Emojis */
+.emoji-text {
+    font-size: 2em;
+    text-align: center;
+}

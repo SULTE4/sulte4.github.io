@@ -1,101 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="static/css/main.css">
-    <title>Sultanbek's homepage</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="static/css/main.css" />
 </head>
-<body id="page-body">
-    <nav id="navbar">
-        <ul>
-            <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
-            <li class="nav-item"><a href="#hobbies" class="nav-link">Hobbies</a></li>
-            <li class="nav-item"><a href="#favourite-sites" class="nav-link">Sites</a></li>
-            <li class="nav-item"><a href="#schedule" class="nav-link">Schedule</a></li>
-            <li class="nav-item"><a href="#form-section" class="nav-link">Form</a></li>
-        </ul>
+<body>
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <header id="top-banner">
-        <h1 class="main-heading">Sultanbek Zhumagali</h1>
-        <h2 class="sub-heading">Web Technologies Frontend</h2>
-    </header>
+  </header>
 
-    <section id="about-section">
-        <h3 class="section-heading">About me</h3>
-        <p class="paragraph-text">Hi! I am student at <a href="https://astanait.edu.kz/" class="nav-link">Astana IT University</a>. 
-        It is my first web page that I am making at uni course...</p>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hello! I’m a front-end developer passionate about learning modern CSS
+        techniques and building real-world, responsive web projects.
+      </p>
     </section>
 
-    <hr>
-
-    <section id="hobbies">
-        <h3 class="section-heading">My hobbies</h3>
-        <ol class="content-list">
-            <li>Playing Chess (<a href="https://chess.com" class="nav-link">Chess.com</a>)</li>
-            <li>Reading books</li>
-            <li>Table tennis</li>
-        </ol>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>1337b04rd (mini reddit)</li>
+        <li>Creditcard (creditcard validator)</li>
+        <li>Library Management (Java + Spring Boot)</li>
+      </ul>
     </section>
 
-    <hr>
-
-    <section id="favourite-sites">
-        <h3 class="section-heading">My favourite sites</h3>
-        <ul class="content-list">
-            <li><a href="https://monkeytype.com" class="nav-link">Monkeytype</a></li>
-            <li><a href="https://codeforces.com" class="nav-link">Codeforces</a></li>
-            <li><a href="https://youtube.com" class="nav-link">YouTube</a></li>
-        </ul>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sult.zhumagaliev07@gmail.com">sult.zhumagaliev07@gmail.com</a></p>
+      <p>Location: Astana, Kazakhstan</p>
+      <button>Send Message</button>
     </section>
+  </main>
 
-
-    <hr>
-
-    <button class="btn"><a href="https://google.com" class="btn-link">Click me!</a></button>
-    <br><br>
-    <img src="Sultanbek.jpg" alt="Sultanbek" id="main-image">
-
-    <hr>
-
-    <section id="schedule">
-        <h3 class="section-heading">My uni schedule</h3>
-        <table class="content-table">
-            <thead>
-                <tr>
-                    <th>Day</th><th>Subject</th><th>Time</th><th>Duration</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Monday</td><td>DAA</td><td>18:00–20:00</td><td>120 min</td></tr>
-                <tr><td>Tuesday</td><td>Kazakh lang</td><td>16:00–18:00</td><td>120 min</td></tr>
-                <tr><td>Tuesday</td><td>SDP</td><td>18:00–19:00</td><td>60 min</td></tr>
-                <tr><td>Wednesday</td><td>WEB</td><td>13:00–15:00</td><td>120 min</td></tr>
-            </tbody>
-        </table>
-    </section>
-
-    <hr>
-
-    <section id="mood">
-        <h3 class="section-heading">My today's mood</h3>
-        <p class="emoji-text">&#x1F634; <br>💰<br>&#x1F393;</p>
-    </section>
-
-    <hr>
-
-    <section id="form-section">
-        <h3 class="section-heading">Contact Me</h3>
-        <form id="user-form">
-            <label for="name">Your name:</label><br>
-            <input type="text" id="name" class="form-input"><br>
-
-            <label for="email">Your email:</label><br>
-            <input type="email" id="email" class="form-input"><br>
-
-            <label for="color">Your favourite color:</label><br>
-            <input type="color" id="favColor" class="form-input"><br>
-
-            <button class="submit-btn">Submit</button>
-        </form>
-    </section>
+  <footer>
+    <p>© 2025 My Portfolio. Built with ❤️ using HTML & CSS.</p>
+  </footer>
 </body>
 </html>

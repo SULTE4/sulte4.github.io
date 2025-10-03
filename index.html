@@ -1,50 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="static/css/main.css" />
+    <title>Sultanbek's portfolio</title>
+    <link rel="stylesheet" href="static/css/main.css">
 </head>
+
 <body>
-  <header>
-    <h1>My Portfolio</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <header class="nav">
+        <div class="logo">Sultanbek Zhumagali</div>
+        <ul class="links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#Gallery">Gallery</a></li>
+            <li><a href="#Portfolio">Portfolio Grid</a></li>
+            <li><a href="#Footer">Footer</a></li>
+        </ul> 
+    </header>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Hello! I’m a front-end developer passionate about learning modern CSS
-        techniques and building real-world, responsive web projects.
-      </p>
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome</h2>
+        <p>This is the home section of my portfolio.</p>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li>1337b04rd (mini reddit)</li>
-        <li>Creditcard (creditcard validator)</li>
-        <li>Library Management (Java + Spring Boot)</li>
-      </ul>
+    <!-- Projects Section -->
+    <section id="Projects">
+        <h2>Projects</h2>
+        <div class="Projects">
+            <div class="project">
+                <div class="media">
+                    <img src="static/img/creditcard.png" alt="No_Pic">
+                </div>
+                <h3>Creditcard</h3>
+                <p>Short description</p>
+                <a href="#" class="btn">Read more</a>
+            </div>
+            <div class="project">
+                <div class="media">Image</div>
+                <h3>1337b04rd</h3>
+                <p>Short description</p>
+                <a href="https://github.com/SULTE4/1337b04rd" class="btn">Read more</a>
+            </div>
+            <div class="project">
+                <div class="media">
+                    <img src="static/img/marketflow.png" alt="No_Pic">
+                </div>
+                <h3>Marketflow</h3>
+                <p>Short description</p>
+                <a href="https://github.com/SULTE4/marketflow" class="btn">Read more</a>
+            </div>
+        </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:sult.zhumagaliev07@gmail.com">sult.zhumagaliev07@gmail.com</a></p>
-      <p>Location: Astana, Kazakhstan</p>
-      <button>Send Message</button>
+    <!-- Gallery Section -->
+    <section id="Gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=1" alt="Random Image 1">
+                <div class="caption">Image 1</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=2" alt="Random Image 2">
+                <div class="caption">Image 2</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=3" alt="Random Image 3">
+                <div class="caption">Image 3</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=4" alt="Random Image 4">
+                <div class="caption">Image 4</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=5" alt="Random Image 5">
+                <div class="caption">Image 5</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=6" alt="Random Image 6">
+                <div class="caption">Image 6</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=7" alt="Random Image 7">
+                <div class="caption">Image 7</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=8" alt="Random Image 8">
+                <div class="caption">Image 8</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://picsum.photos/400?random=9" alt="Random Image 9">
+                <div class="caption">Image 9</div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2025 My Portfolio. Built with ❤️ using HTML & CSS.</p>
-  </footer>
+    <!-- Portfolio Grid Section -->
+    <section id="Portfolio">
+        <div class="layout">
+            <header class="header">
+                <h2>Welcome to My Portfolio</h2>
+                <p>This page shows my work, skills, and projects.</p>
+            </header>
+
+            <aside class="sidebar">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#About">About Me</a></li>
+                    <li><a href="#Projects">Projects</a></li>
+                    <li><a href="#Gallery">Gallery</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+
+                <h3>Skills</h3>
+                <ul>
+                    <li>HTML / CSS</li>
+                    <li>Java / Spring Boot</li>
+                    <li>Golang</li>
+                    <li>SQL / Databases</li>
+                </ul>
+            </aside>
+
+            <main class="main">
+                <h2>About Me</h2>
+                <p>My name is Sultanbek Zhumagali. I am a first-year student passionate about 
+                programming, software engineering, and building real projects.</p>
+
+                <h2>Latest Blog</h2>
+                <p>Currently I’m working on a Library Management System using Java and PostgreSQL.
+                This project helps me apply OOP, SOLID principles, and REST APIs in practice.</p>
+            </main>
+
+            <footer class="footer" id="Footer">
+                <p>© 2025 Sultanbek Zhumagali</p>
+            </footer>
+        </div>
+    </section>
 </body>
 </html>

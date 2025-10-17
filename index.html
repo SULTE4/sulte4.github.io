@@ -1,102 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Portfolio Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Assignment 5</title>
 </head>
 <body>
-
-  <!-- Header with Bootstrap Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Sultanbek’s Portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#Projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sidebar">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-<div class="container mt-4" id="Projects">
-  <div class="row align-items-start">
-    <!-- Left: Portfolio Projects -->
-    <div class="col-12 col-lg-8">
-      <h1 class="mb-4 text-center text-lg-start">My Projects</h1>
-      <div class="row g-4">
-        <div class="col-12 col-md-6">
-          <div class="card h-100 shadow-sm">
-            <img src="https://picsum.photos/seed/pic1/600/400" class="card-img-top img-fluid" alt="Project 1">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Project 1</h5>
-              <p class="card-text flex-grow-1">
-                project description
-              </p>
-              <a href="#" class="btn btn-primary mt-auto">View Project</a>
+    <div class="container mt-4">
+        
+        <form class="needs-validation" id="registrationForm" novalidate >
+            <div class="row">
+                <div class="col-6 mb-3">
+                    <label class="form-label" for="fname">First Name:</label>
+                    <input type="text" class="form-control" id="fname" name="fname" minlength="2" maxlength="50" pattern="[A-Za-z ]+" required>
+                    <div class="invalid-feedback">First name must be at least 2 characters and contain only letters.</div>
+                </div>
+                <div class="col-6 mb-3">
+                    <label class="form-label" for="lname">Last Name:</label>
+                    <input type="text" class="form-control" id="lname" name="lname" minlength="2" maxlength="50" pattern="[A-Za-z ]+" required>
+                    <div class="invalid-feedback">Last name must be at least 2 characters and contain only letters.</div>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <div class="card h-100 shadow-sm">
-            <img src="https://picsum.photos/seed/pic2/600/400" class="card-img-top img-fluid" alt="Project 2">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Project 2</h5>
-              <p class="card-text flex-grow-1">
-                project description
-              </p>
-              <a href="#" class="btn btn-success mt-auto">View Project</a>
+            <hr>
+            <div class="row ">
+                <div class="col-12 mb-3">
+                    <label class="form-label" for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <div class="invalid-feedback">Please provide a valid email</div>
+                </div>
+                <!-- password -->
+                <div class="col-6 mb-3"> 
+                    <label class="form-label" for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" minlength="8" required>
+                    <div class="invalid-feedback">Please provide a valid password</div>
+                </div>
+                <!-- confirm pass -->
+                <div class="col-6 mb-3">
+                    <label class="form-label" for="confirmPassword">Confirm password:</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" minlength="8" required>
+                    <div class="invalid-feedback">
+                        Passwords do not match.
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+            <hr>
+            <div class="row">
+                <!-- gender radio button -->
+                <div class="col-6 mb-3">
+                    <label class="form-label" for="gender">Gender:</label>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="male" name="gender" value="male" required>
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="female" name="gender" value="female" required>
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                    <div class="invalid-feedback">Please choose one of options</div>
+                </div>
+                
+                <!-- hobbies select dropdown -->
+                <div class="col-6 mb-3">
+                    <label class="form-check-label mb-1">Hobbies</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="reading" name="hobby[]" value="reading">
+                        <label class="form-check-label" for="reading">Reading</label>
+                    </div>
 
-        <div class="col-12">
-          <div class="card h-100 shadow-sm">
-            <img src="https://picsum.photos/seed/pic/600/400" class="card-img-top img-fluid" alt="Project 3">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Project 3</h5>
-              <p class="card-text flex-grow-1">
-                project description
-              </p>
-              <a href="#" class="btn btn-warning mt-auto">View Project</a>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="traveling" name="hobby[]" value="traveling">
+                        <label class="form-check-label" for="traveling">Traveling</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="music" name="hobby[]" value="music">
+                        <label class="form-check-label" for="music">Music</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cooking" name="hobby[]" value="cooking">
+                        <label class="form-check-label" for="cooking">Cooking</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gaming" name="hobby[]" value="gaming">
+                        <label class="form-check-label" for="gaming">Gaming</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="sports" name="hobby[]" value="sports">
+                        <label class="form-check-label" for="sports">Sports</label>
+                    </div>
+                </div> 
+
+                <!-- countires  -->
+                
+                <div class="col-6 mb-3">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" id="country" name="country" required>
+                    <option value="">Choose...</option>
+                    <option value="kazakhstan">Kazakhstan</option>
+                    <option value="usa">USA</option>
+                </select>
+                <div class="invalid-feedback">Please select a country.</div>
+                </div>
+
+                <!-- submission button -->
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Send</button>
+                    <button class="btn btn-secondary" type="reset">Reset</button>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
+        </form>
     </div>
-
-    <!-- Right: Sidebar -->
-    <div class="col-12 col-lg-4" id="sidebar">
-      <div class="sidebar h-100">
-        <h3>About Me</h3>
-        <p><strong>Name:</strong> Жұмағали Сұлтанбек</p>
-        <p><strong>Email:</strong> sult.zhumagaliev07@gmail.com</p>
-        <p><strong>Location:</strong> Astana, Kazakhstan</p>
-        <hr>
-        <h3>Contact</h3>
-        <p>Feel free to reach me for collaborations or questions.</p>
-        <a href="mailto:sult.zhumagaliev07@gmail.com" class="btn btn-outline-primary w-100">Send Email</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Sultanbek Zhumagali | All Rights Reserved</p>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/main.js"></script>
 </body>
 </html>

@@ -1,121 +1,720 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Learning Platform</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4cc9f0;
+            --danger-color: #f72585;
+            --warning-color: #f8961e;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-  <title>Assignment 5</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: var(--border-radius);
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .nav-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .task-section {
+            display: none;
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .task-section.active {
+            display: block;
+        }
+
+        .task-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .task-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .demo-area {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            background-color: #f9f9f9;
+        }
+
+        .demo-box {
+            padding: 1rem;
+            margin: 1rem 0;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .color-box {
+            width: 150px;
+            height: 150px;
+            background-color: #e9ecef;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+            transition: var(--transition);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+        }
+
+        .list-container {
+            margin: 1rem 0;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .console-output {
+            background-color: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            height: 150px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .navigation {
+                flex-direction: column;
+            }
+            
+            .nav-btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-4">
-        
-        <form class="needs-validation" id="registrationForm" novalidate >
-            <div class="row">
-                <div class="col-6 mb-3">
-                    <label class="form-label" for="fname">First Name:</label>
-                    <input type="text" class="form-control" id="fname" name="fname" minlength="2" maxlength="50" pattern="[A-Za-z ]+" required>
-                    <div class="invalid-feedback">First name must be at least 2 characters and contain only letters.</div>
+    <div class="container">
+        <header>
+            <h1>JavaScript Learning Platform</h1>
+            <p class="subtitle">Master JavaScript fundamentals through interactive examples</p>
+        </header>
+
+        <div class="navigation">
+            <button class="nav-btn active" data-target="task0">Task 0: First Script</button>
+            <button class="nav-btn" data-target="task1">Task 1: Variables & Operators</button>
+            <button class="nav-btn" data-target="task2">Task 2: Changing Content</button>
+            <button class="nav-btn" data-target="task3">Task 3: Changing Styles</button>
+            <button class="nav-btn" data-target="task4">Task 4: Creating & Removing Elements</button>
+            <button class="nav-btn" data-target="task5">Task 5: Mouse Events</button>
+            <button class="nav-btn" data-target="task6">Task 6: Keyboard Events</button>
+            <button class="nav-btn" data-target="task7">Task 7: Form Validation</button>
+            <button class="nav-btn" data-target="task8">Task 8: To-Do App</button>
+        </div>
+
+        <!-- Task 0: First Script -->
+        <section id="task0" class="task-section active">
+            <h2 class="task-title">Task 0: First Script</h2>
+            <div class="task-content">
+                <p>This task demonstrates basic JavaScript execution and console logging.</p>
+                <div class="code-block">
+                    console.log("Your Name", "Your Group");<br>
+                    alert("Hello, JavaScript World!");
                 </div>
-                <div class="col-6 mb-3">
-                    <label class="form-label" for="lname">Last Name:</label>
-                    <input type="text" class="form-control" id="lname" name="lname" minlength="2" maxlength="50" pattern="[A-Za-z ]+" required>
-                    <div class="invalid-feedback">Last name must be at least 2 characters and contain only letters.</div>
+                <div class="demo-area">
+                    <p>Click the button below to see the alert message:</p>
+                    <button id="showAlert">Show Alert</button>
                 </div>
             </div>
-            <hr>
-            <div class="row ">
-                <div class="col-12 mb-3">
-                    <label class="form-label" for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                    <div class="invalid-feedback">Please provide a valid email</div>
+        </section>
+
+        <!-- Task 1: Variables & Operators -->
+        <section id="task1" class="task-section">
+            <h2 class="task-title">Task 1: Variables & Operators</h2>
+            <div class="task-content">
+                <p>This section demonstrates variable declaration and operations in JavaScript.</p>
+                <div class="code-block">
+                    // Variable declarations<br>
+                    let name = "John Doe";<br>
+                    let age = 25;<br>
+                    let isStudent = true;<br><br>
+                    
+                    // Arithmetic operations<br>
+                    let a = 10, b = 5;<br>
+                    let sum = a + b;<br>
+                    let product = a * b;<br><br>
+                    
+                    // String concatenation<br>
+                    let greeting = "Hello, " + name + "!";
                 </div>
-                <!-- password -->
-                <div class="col-6 mb-3"> 
-                    <label class="form-label" for="password">Password:</label>
-                    <input type="password" class="form-control" id="password" name="password" minlength="8" required>
-                    <div class="invalid-feedback">Please provide a valid password</div>
+                <div class="demo-area">
+                    <p>Click the button to see variable operations in the console:</p>
+                    <button id="runVariablesDemo">Run Variables Demo</button>
+                    <div class="console-output" id="consoleOutput1"></div>
                 </div>
-                <!-- confirm pass -->
-                <div class="col-6 mb-3">
-                    <label class="form-label" for="confirmPassword">Confirm password:</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" minlength="8" required>
-                    <div class="invalid-feedback">
-                        Passwords do not match.
+            </div>
+        </section>
+
+        <!-- Task 2: Changing Content -->
+        <section id="task2" class="task-section">
+            <h2 class="task-title">Task 2: Changing Content</h2>
+            <div class="task-content">
+                <p>This section demonstrates how to change HTML content using JavaScript.</p>
+                <div class="code-block">
+                    function changeText() {<br>
+                    &nbsp;&nbsp;document.getElementById("demoParagraph").innerText = "Text has been changed!";<br>
+                    }
+                </div>
+                <div class="demo-area">
+                    <p id="demoParagraph">This is the original paragraph text.</p>
+                    <button id="changeTextBtn">Change Text</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 3: Changing Styles -->
+        <section id="task3" class="task-section">
+            <h2 class="task-title">Task 3: Changing Styles</h2>
+            <div class="task-content">
+                <p>This section demonstrates how to change CSS styles using JavaScript.</p>
+                <div class="code-block">
+                    function changeBackground() {<br>
+                    &nbsp;&nbsp;document.getElementById("styleBox").style.backgroundColor = getRandomColor();<br>
+                    }<br><br>
+                    
+                    function changeFontSize() {<br>
+                    &nbsp;&nbsp;document.getElementById("styleBox").style.fontSize = "24px";<br>
+                    }
+                </div>
+                <div class="demo-area">
+                    <div id="styleBox" class="demo-box">
+                        This is a div container. Use the buttons to change its appearance.
+                    </div>
+                    <button id="changeBgBtn">Change Background Color</button>
+                    <button id="changeFontBtn">Change Font Size</button>
+                    <button id="resetStylesBtn">Reset Styles</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 4: Creating & Removing Elements -->
+        <section id="task4" class="task-section">
+            <h2 class="task-title">Task 4: Creating & Removing Elements</h2>
+            <div class="task-content">
+                <p>This section demonstrates how to dynamically add and remove elements from the DOM.</p>
+                <div class="code-block">
+                    function addItem() {<br>
+                    &nbsp;&nbsp;let newItem = document.createElement("li");<br>
+                    &nbsp;&nbsp;newItem.textContent = "Item " + (itemList.children.length + 1);<br>
+                    &nbsp;&nbsp;document.getElementById("itemList").appendChild(newItem);<br>
+                    }<br><br>
+                    
+                    function removeItem() {<br>
+                    &nbsp;&nbsp;let list = document.getElementById("itemList");<br>
+                    &nbsp;&nbsp;if (list.children.length > 0) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;list.removeChild(list.lastChild);<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+                <div class="demo-area">
+                    <ul id="itemList" class="list-container">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                    </ul>
+                    <button id="addItemBtn">Add Item</button>
+                    <button id="removeItemBtn">Remove Item</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 5: Mouse Events -->
+        <section id="task5" class="task-section">
+            <h2 class="task-title">Task 5: Mouse Events</h2>
+            <div class="task-content">
+                <p>This section demonstrates mouse event handling in JavaScript.</p>
+                <div class="code-block">
+                    let colorBox = document.getElementById("colorBox");<br><br>
+                    
+                    colorBox.addEventListener("mouseover", function() {<br>
+                    &nbsp;&nbsp;this.style.backgroundColor = "#4cc9f0";<br>
+                    });<br><br>
+                    
+                    colorBox.addEventListener("mouseout", function() {<br>
+                    &nbsp;&nbsp;this.style.backgroundColor = "#e9ecef";<br>
+                    });
+                </div>
+                <div class="demo-area">
+                    <p>Hover over the box below to see the color change:</p>
+                    <div id="colorBox" class="color-box">
+                        Hover over me!
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="row">
-                <!-- gender radio button -->
-                <div class="col-6 mb-3">
-                    <label class="form-label" for="gender">Gender:</label>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" id="male" name="gender" value="male" required>
-                        <label class="form-check-label" for="male">Male</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" id="female" name="gender" value="female" required>
-                        <label class="form-check-label" for="female">Female</label>
-                    </div>
-                    <div class="invalid-feedback">Please choose one of options</div>
+        </section>
+
+        <!-- Task 6: Keyboard Events -->
+        <section id="task6" class="task-section">
+            <h2 class="task-title">Task 6: Keyboard Events</h2>
+            <div class="task-content">
+                <p>This section demonstrates keyboard event handling in JavaScript.</p>
+                <div class="code-block">
+                    let inputField = document.getElementById("keyboardInput");<br>
+                    let output = document.getElementById("keyboardOutput");<br><br>
+                    
+                    inputField.addEventListener("keyup", function() {<br>
+                    &nbsp;&nbsp;output.textContent = this.value;<br>
+                    });
                 </div>
-                
-                <!-- hobbies select dropdown -->
-                <div class="col-6 mb-3">
-                    <label class="form-check-label mb-1">Hobbies</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="reading" name="hobby[]" value="reading">
-                        <label class="form-check-label" for="reading">Reading</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="traveling" name="hobby[]" value="traveling">
-                        <label class="form-check-label" for="traveling">Traveling</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="music" name="hobby[]" value="music">
-                        <label class="form-check-label" for="music">Music</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="cooking" name="hobby[]" value="cooking">
-                        <label class="form-check-label" for="cooking">Cooking</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gaming" name="hobby[]" value="gaming">
-                        <label class="form-check-label" for="gaming">Gaming</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="sports" name="hobby[]" value="sports">
-                        <label class="form-check-label" for="sports">Sports</label>
-                    </div>
-                </div> 
-
-                <!-- countires  -->
-                
-                <div class="col-6 mb-3">
-                <label for="country" class="form-label">Country</label>
-                <select class="form-select" id="country" name="country" required>
-                    <option value="">Choose...</option>
-                    <option value="kazakhstan">Kazakhstan</option>
-                    <option value="usa">USA</option>
-                </select>
-                <div class="invalid-feedback">Please select a country.</div>
-                </div>
-
-                <!-- submission button -->
-                <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Send</button>
-                    <button class="btn btn-secondary" type="reset">Reset</button>
+                <div class="demo-area">
+                    <p>Type in the input field below to see the text update in real-time:</p>
+                    <input type="text" id="keyboardInput" placeholder="Start typing...">
+                    <p>Current value: <span id="keyboardOutput"></span></p>
                 </div>
             </div>
-        </form>
+        </section>
+
+        <!-- Task 7: Form Validation -->
+        <section id="task7" class="task-section">
+            <h2 class="task-title">Task 7: Form Validation</h2>
+            <div class="task-content">
+                <p>This section demonstrates basic form validation using JavaScript.</p>
+                <div class="code-block">
+                    function validateForm() {<br>
+                    &nbsp;&nbsp;let name = document.getElementById("name").value;<br>
+                    &nbsp;&nbsp;let email = document.getElementById("email").value;<br>
+                    &nbsp;&nbsp;let password = document.getElementById("password").value;<br>
+                    &nbsp;&nbsp;let isValid = true;<br><br>
+                    
+                    &nbsp;&nbsp;if (name === "") {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;showError("nameError", "Name is required");<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;isValid = false;<br>
+                    &nbsp;&nbsp;}<br>
+                    &nbsp;&nbsp;// Similar checks for email and password<br><br>
+                    
+                    &nbsp;&nbsp;return isValid;<br>
+                    }
+                </div>
+                <div class="demo-area">
+                    <form id="validationForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name">
+                            <div id="nameError" class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email">
+                            <div id="emailError" class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password">
+                            <div id="passwordError" class="error-message"></div>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task 8: To-Do App -->
+        <section id="task8" class="task-section">
+            <h2 class="task-title">Task 8: Interactive To-Do List</h2>
+            <div class="task-content">
+                <p>This section demonstrates a complete interactive to-do list application.</p>
+                <div class="code-block">
+                    let tasks = [];<br><br>
+                    
+                    function addTask() {<br>
+                    &nbsp;&nbsp;let taskInput = document.getElementById("taskInput");<br>
+                    &nbsp;&nbsp;let taskText = taskInput.value.trim();<br>
+                    &nbsp;&nbsp;if (taskText !== "") {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;tasks.push({ text: taskText, completed: false });<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;renderTasks();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;taskInput.value = "";<br>
+                    &nbsp;&nbsp;}<br>
+                    }<br><br>
+                    
+                    function renderTasks() {<br>
+                    &nbsp;&nbsp;// Code to display tasks with delete buttons and completion toggle<br>
+                    }
+                </div>
+                <div class="demo-area">
+                    <div class="form-group">
+                        <input type="text" id="taskInput" placeholder="Enter a new task">
+                        <button id="addTaskBtn">Add Task</button>
+                    </div>
+                    <ul id="taskList" class="list-container"></ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>JavaScript Learning Platform &copy; 2023 | All tasks implemented with vanilla JavaScript</p>
+        </footer>
     </div>
-    <script src="static/js/main.js"></script>
+
+    <script>
+        // Navigation between tasks
+        document.querySelectorAll('.nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons and sections
+                document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.task-section').forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding section
+                this.classList.add('active');
+                const targetSection = document.getElementById(this.getAttribute('data-target'));
+                targetSection.classList.add('active');
+            });
+        });
+
+        // Task 0: First Script
+        document.getElementById('showAlert').addEventListener('click', function() {
+            console.log("John Doe", "Group A");
+            alert("Hello, JavaScript World!");
+        });
+
+        // Task 1: Variables & Operators
+        document.getElementById('runVariablesDemo').addEventListener('click', function() {
+            const consoleOutput = document.getElementById('consoleOutput1');
+            consoleOutput.innerHTML = '';
+            
+            // Variable declarations
+            let name = "John Doe";
+            let age = 25;
+            let isStudent = true;
+            
+            // Arithmetic operations
+            let a = 10, b = 5;
+            let sum = a + b;
+            let product = a * b;
+            let difference = a - b;
+            let quotient = a / b;
+            
+            // String concatenation
+            let greeting = "Hello, " + name + "!";
+            
+            // Display in console output
+            consoleOutput.innerHTML += `Name: ${name}<br>`;
+            consoleOutput.innerHTML += `Age: ${age}<br>`;
+            consoleOutput.innerHTML += `Is Student: ${isStudent}<br><br>`;
+            consoleOutput.innerHTML += `Arithmetic Operations:<br>`;
+            consoleOutput.innerHTML += `${a} + ${b} = ${sum}<br>`;
+            consoleOutput.innerHTML += `${a} - ${b} = ${difference}<br>`;
+            consoleOutput.innerHTML += `${a} * ${b} = ${product}<br>`;
+            consoleOutput.innerHTML += `${a} / ${b} = ${quotient}<br><br>`;
+            consoleOutput.innerHTML += `String Concatenation:<br>`;
+            consoleOutput.innerHTML += `${greeting}<br>`;
+        });
+
+        // Task 2: Changing Content
+        document.getElementById('changeTextBtn').addEventListener('click', function() {
+            document.getElementById('demoParagraph').innerText = "Text has been changed! This is the new content.";
+        });
+
+        // Task 3: Changing Styles
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        document.getElementById('changeBgBtn').addEventListener('click', function() {
+            document.getElementById('styleBox').style.backgroundColor = getRandomColor();
+        });
+
+        document.getElementById('changeFontBtn').addEventListener('click', function() {
+            document.getElementById('styleBox').style.fontSize = "24px";
+        });
+
+        document.getElementById('resetStylesBtn').addEventListener('click', function() {
+            const styleBox = document.getElementById('styleBox');
+            styleBox.style.backgroundColor = "";
+            styleBox.style.fontSize = "";
+        });
+
+        // Task 4: Creating & Removing Elements
+        document.getElementById('addItemBtn').addEventListener('click', function() {
+            const itemList = document.getElementById('itemList');
+            const newItem = document.createElement('li');
+            newItem.textContent = `Item ${itemList.children.length + 1}`;
+            itemList.appendChild(newItem);
+        });
+
+        document.getElementById('removeItemBtn').addEventListener('click', function() {
+            const itemList = document.getElementById('itemList');
+            if (itemList.children.length > 0) {
+                itemList.removeChild(itemList.lastChild);
+            }
+        });
+
+        // Task 5: Mouse Events
+        const colorBox = document.getElementById('colorBox');
+        colorBox.addEventListener('mouseover', function() {
+            this.style.backgroundColor = "#4cc9f0";
+            this.textContent = "Mouse is over!";
+        });
+
+        colorBox.addEventListener('mouseout', function() {
+            this.style.backgroundColor = "#e9ecef";
+            this.textContent = "Hover over me!";
+        });
+
+        // Task 6: Keyboard Events
+        const keyboardInput = document.getElementById('keyboardInput');
+        const keyboardOutput = document.getElementById('keyboardOutput');
+        
+        keyboardInput.addEventListener('keyup', function() {
+            keyboardOutput.textContent = this.value;
+        });
+
+        // Task 7: Form Validation
+        const validationForm = document.getElementById('validationForm');
+        
+        validationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            
+            let isValid = true;
+            
+            // Name validation
+            const name = document.getElementById('name').value;
+            if (name.trim() === '') {
+                document.getElementById('nameError').textContent = 'Name is required';
+                isValid = false;
+            }
+            
+            // Email validation
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.trim() === '') {
+                document.getElementById('emailError').textContent = 'Email is required';
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email';
+                isValid = false;
+            }
+            
+            // Password validation
+            const password = document.getElementById('password').value;
+            if (password.trim() === '') {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('Form submitted successfully!');
+                validationForm.reset();
+            }
+        });
+
+        // Task 8: To-Do App
+        let tasks = [];
+        
+        document.getElementById('addTaskBtn').addEventListener('click', addTask);
+        document.getElementById('taskInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+        
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const taskText = taskInput.value.trim();
+            
+            if (taskText !== '') {
+                tasks.push({ text: taskText, completed: false });
+                renderTasks();
+                taskInput.value = '';
+            }
+        }
+        
+        function renderTasks() {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = '';
+            
+            tasks.forEach((task, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'list-item';
+                if (task.completed) {
+                    listItem.classList.add('completed');
+                }
+                
+                listItem.innerHTML = `
+                    <span onclick="toggleTask(${index})">${task.text}</span>
+                    <button onclick="deleteTask(${index})">Delete</button>
+                `;
+                
+                taskList.appendChild(listItem);
+            });
+        }
+        
+        function toggleTask(index) {
+            tasks[index].completed = !tasks[index].completed;
+            renderTasks();
+        }
+        
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            renderTasks();
+        }
+        
+        // Initialize the to-do list with some sample tasks
+        tasks = [
+            { text: "Learn JavaScript basics", completed: false },
+            { text: "Practice DOM manipulation", completed: false },
+            { text: "Build a simple project", completed: true }
+        ];
+        renderTasks();
+    </script>
 </body>
 </html>
